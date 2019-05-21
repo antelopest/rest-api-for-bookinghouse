@@ -2,17 +2,23 @@
 
 const express = require('express');
 
-const connectToDatabase = require('./connection.database');
-const connectMiddaleware = require('./connection.middleware');
-const connectSwagger = require('./connection.swagger');
+const connectToDatabase = require('./configuration/connection.database');
+const connectRoutes = require('./configuration/connection.routes');
+const connectMiddaleware = require('./configuration/connection.middleware');
+const connectSwagger = require('./configuration/connection.swagger');
 
 const app = express();
 
-connectToDatabase();
-connectMiddaleware(app);
+(async function initializationAPI() {
+  await connectToDatabase();
+  await connectRoutes(app);
+  await connectMiddaleware(app);
+}());
+
 
 const foo = require('./routes.js');
 foo();
 
 connectSwagger(app);
+
 module.exports = app;

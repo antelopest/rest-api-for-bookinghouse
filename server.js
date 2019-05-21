@@ -9,7 +9,6 @@ const PORT = process.env.PORT || config.get('port');
 const SERVER = http.createServer(app);
 
 SERVER.listen(PORT, () => {
-  console.log(`PORT: ${PORT}`);
-  console.log(`URL ROOT: http://${HOST}:${PORT}`);
-  console.log(`URL SWAGGER EXPLORER: http://${HOST}:${PORT}/api/docs`);
+  console.log(`[ROOT] URL: http://${HOST}:${PORT}`);
+  console.log(`[SWAGGER EXPLORER] URL: http://${HOST}:${PORT}/api/docs`);
 });

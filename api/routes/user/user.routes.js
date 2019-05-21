@@ -1,3 +1,7 @@
+'use strict'
+const express = require('express');
+const router = express.Router();
+
 /**
  * This function comment is parsed by doctrine
  * @security JWT
@@ -8,7 +12,6 @@
  * @returns {object} 200 - An array of user info
  * @returns {Error}  404 - Dont Found
  */
-
 
 /**
 * @typedef User
@@ -43,5 +46,7 @@
 * @property {PassportDetails} PassportDetails - Паспортные данные
 */
 
-function foo() { console.log('foo'); }
-module.exports = foo;
+router.get('/', () => {console.log('123');});
+
+module.exports = router;
+
