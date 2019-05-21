@@ -1,0 +1,9 @@
+/user
+
+model
+
+/auth/local/registration
+/auth/local/login
+
+/auth/google/login
+/auth/facebook/login

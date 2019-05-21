@@ -1,0 +1,25 @@
+{
+  "name": "express-api",
+  "version": "1.0.0",
+  "description": "REST API Service for Booking house",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "config": "^3.1.0",
+    "express": "^4.17.0",
+    "install": "^0.12.2",
+    "mongoose": "^5.5.10",
+    "morgan": "^1.9.1",
+    "swagger-jsdoc": "^3.2.9",
+    "swagger-ui-express": "^4.0.4",
+    "yamljs": "^0.3.0"
+  },
+  "devDependencies": {
+    "express-swagger-generator": "^1.1.14"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Belenko S. Y.",
+  "license": "MIT"
+}
