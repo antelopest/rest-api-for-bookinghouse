@@ -28,7 +28,7 @@ async function connectSwagger(app) {
       }
     },
     basedir: __dirname,
-    files: ['../routes.js']
+    files: ['../routes.js', '../api/routes/user/user.routes.js', '../api/models/user/user.model.js']
   };
 
   expressSwagger(swaggerSettings);

@@ -2,51 +2,48 @@
 const express = require('express');
 const router = express.Router();
 
+const Services = require('../../service/index');
+const userService = Services.UserService;
+
 /**
- * This function comment is parsed by doctrine
- * @security JWT
- * @route GET /api
- * @group foo - Operations about user
- * @param {string} email.query.required - username or email - eg: user@domain
- * @param {string} password.query.required - user's password.
+ * @route POST /auth/local/signin
+ * @group auth - Operations auth
+ * @param {string} email.query.required - email@domain
+ * @param {string} password.query.required - password
  * @returns {object} 200 - An array of user info
- * @returns {Error}  404 - Dont Found
+ * @returns {Error}  404 - User don't found
  */
 
 /**
-* @typedef User
-* @property {string} id - Первичный ключ документа User
-* @property {string} role - Роль пользователя в системе
-* @property {date} dateCreated - Дата создания учетной записи
-* @property {date} dateUpdated - Дата обновления учетной записи
-* @property {boolean} verified - Пользователь прошел верификацию
-* @property {Account} Account - Учетная запись
-* @property {Profile} Profile - Профиль
+* @route POST /users
+* @group users - Операции над User
+* @param {string} email.query.required - username or email - eg: user@domain
+* @param {string} password.query.required - user's password.
+* @returns {object} 200 - An array of user info
+* @returns {Error}  404 - Dont Found
 */
+
+
 
 /**
-* @typedef Account
-* @property {Local} Local - Локальная учетная запись
-* @property {Google} Google - Учетная запись Google
-* @property {Facebook} Facebook - Учетная запись Facebook
-*/
+ * Возвращает количество пользователей в системе
+ * @route GET /users/count
+ * @group users - Operations resource User
+ * @returns {number} 200 - Количество пользователей в системе
+ * @returns {Error}  500 - Bad request
+ */
 
-/**
-* @typedef Local
-* @property {string} email.required - Электронная почта
-* @property {string} password.required - Пароль
-*/
-
-/**
-* @typedef Profile
-* @property {string} surname - Фамилия
-* @property {string} name - Имя
-* @property {string} patronymic - Отчество
-* @property {date} dateOfBirth - Дата рождения
-* @property {PassportDetails} PassportDetails - Паспортные данные
-*/
-
-router.get('/', () => {console.log('123');});
+router.get('/count', () => { console.log('123'); })
 
 module.exports = router;
 
+
+// router.post('/auth/local/signup', () => {console.log('123');});
+// router.post('/auth/local/signin', () => {console.log('123');});
+
+// get users count 
+// {email}
+// {id}
+
+// {id} profile 
+// {id} passportdetails
