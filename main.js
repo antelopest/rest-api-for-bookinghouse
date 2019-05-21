@@ -15,10 +15,6 @@ const app = express();
   await connectMiddaleware(app);
 }());
 
-
-const foo = require('./routes.js');
-foo();
-
 connectSwagger(app);
 
 module.exports = app;

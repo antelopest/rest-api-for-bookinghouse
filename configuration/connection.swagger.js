@@ -12,7 +12,7 @@ async function connectSwagger(app) {
         version: '1.0.0',
         description: 'REST API Service for Booking house'
       },
-      host: `http://${config.get('host')}:${config.get('port')}`,
+      host: `${config.get('host')}:${config.get('port')}`,
       produces: [
         "application/json",
         "application/xml",
