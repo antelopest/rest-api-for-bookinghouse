@@ -13,8 +13,7 @@ const app = express();
   await connectToDatabase();
   await connectRoutes(app);
   await connectMiddaleware(app);
+  await connectSwagger(app);
 }());
-
-connectSwagger(app);
 
 module.exports = app;

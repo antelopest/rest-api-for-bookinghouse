@@ -1,8 +1,5 @@
 'use strict'
-const Models = require('../../models/index');
-const userModel = Models.UserModel;
-
-const bctypt = require('bcrypt');
+const userModel = require('../model/user.model');
 
 exports.readUsersCount = async function () {
   const count = await userModel.count({});
@@ -11,13 +8,13 @@ exports.readUsersCount = async function () {
 }
 
 exports.readAllUsers = async function () {
-  const users = await userModel.find();
+  const users = await userModel.find({});
   if (users) return users
   else return;
 }
 
-exports.findUserByEmail = async function () {
-  const foundUser = await userModel.findOne({ 'account.local.email': 'webantelopestudio@gmail.com'});
+exports.findUserByEmail = async function (email) {
+  const foundUser = await userModel.findOne({ 'account.local.email': email });
   if (foundUser) return foundUser
   else return;
 }

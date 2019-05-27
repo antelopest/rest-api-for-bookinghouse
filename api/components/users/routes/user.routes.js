@@ -2,17 +2,12 @@
 const express = require('express');
 const router = express.Router();
 
-const Controllers = require('../../controller/index');
-const userController = Controllers.UserController;
-
-
+const userController = require('../controller/user.controller');
 
 /**
- * Возвращает всех пользователей в системе
+ * Get all users 
  * @route GET /users
  * @group users - Operations resource User
- * @return {object} 200 - Все пользователи в системе
- * @return {Error} 500 - Bad request
  */
 
 router.get('/', userController.getAllUsers);
@@ -29,8 +24,8 @@ router.get('/count', userController.getUsersCount);
 
 /**
  * Поиск пользователя по Id
- * @route GET /users/id/{id} 
- * @param {string} id.path.require - id
+ * @route GET /users/user_id/{user_id} 
+ * @param {string} id.path.required - Id
  * @group users - Operations resource User
  * @return {object} 200 - Пользователь найден
  * @return {Error} 404 - User don't found
@@ -40,14 +35,14 @@ router.get('/id/:id', userController.getUserById);
 
 /**
  * Поиск пользователя по Email
- * @route GET /users/email/{email} 
- * @param {string} email.path.require - Email
+ * @route GET /users/user_email/{user_email} 
+ * @param {string} email.path.required - Email
  * @group users - Operations resource User
  * @return {object} 200 - Пользователь найден
  * @return {Error} 404 - User don't found
  */
 
- router.get('/email/:email', userController.getUserByEmail);
+router.get('/email/:email', userController.getUserByEmail);
 
 module.exports = router;
 
@@ -81,3 +76,45 @@ module.exports = router;
 // * @returns {object} 200 - An array of user info
 // * @returns {Error}  404 - Dont Found
 // */
+
+
+
+
+
+/**
+ * @route DELETE /users
+ * @group users
+ */
+
+/**
+ * @route DELETE /users/{user_id}
+ * @group users
+ */
+
+ /**
+ * @route PUT /users/{user_id}/attributes/profile
+ * @group users
+ */
+
+/**
+ * @route PUT /users/{user_id}/attributes/passport_details
+ * @group users
+ */
+
+
+
+
+/**
+ * @route POST /authentication/google/login
+ * @group authentication
+ */
+
+ /**
+ * @route POST /authentication/facebook/login
+ * @group authentication
+ */
+
+/**
+ * @route POST /authentication/local/login
+ * @group authentication
+ */

@@ -1,9 +1,5 @@
 'use strict'
-
-const { check, validationResult } = require('express-validator/check');
-
-const Services = require('../../service/index');
-const userService = Services.UserService;
+const userService = require('../service/user.service');
 
 exports.getUsersCount = async function(req, res) {
   const count = await userService.readUsersCount();
@@ -24,9 +20,9 @@ exports.getAllUsers = async function(req, res) {
 }
 
 exports.getUserByEmail = async function(req, res) {
-  const foundUser = await userService.findUserByEmail();
+  const foundUser = await userService.findUserByEmail('webantelopestudio@gmail.com');
   (foundUser) ? (res.status(200).json({
-    user: user,
+    user: foundUser,
   })) : (res.status(404).json({
     message: 'User dont found',
   }));

@@ -2,6 +2,7 @@
 
 const logger = require('morgan');
 const bodyParser = require('body-parser');
+const expressValidator = require('express-validator');
 
 function connectMiddaleware(app) {
   app.use(logger('dev'));
